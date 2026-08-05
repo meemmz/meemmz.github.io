@@ -1,54 +1,11 @@
-'use client';
-
-import { useEffect, useRef } from 'react';
 import Link from 'next/link';
+import CursorBlob from './components/CursorBlob';
+import Marquee from './components/Marquee';
 
 export default function Home() {
-  const blobRef = useRef<HTMLDivElement>(null);
-  const trackRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const blob = blobRef.current;
-    if (!blob) return;
-    function handleMouseMove(e: MouseEvent) {
-      blob!.style.transform = `translate(${e.clientX - 250}px, ${e.clientY - 250}px)`;
-    }
-    document.addEventListener('mousemove', handleMouseMove);
-    return () => document.removeEventListener('mousemove', handleMouseMove);
-  }, []);
-
-  useEffect(() => {
-    const track = trackRef.current;
-    const container = track?.parentElement;
-    if (!track || !container) return;
-    const unit = track.innerHTML;
-
-    function fillMarquee() {
-      track!.style.animation = 'none';
-      track!.innerHTML = unit;
-      while (track!.scrollWidth < container!.offsetWidth) {
-        track!.innerHTML += unit;
-      }
-      track!.innerHTML += track!.innerHTML;
-      track!.style.animation = '';
-    }
-
-    fillMarquee();
-    let resizeTimer: ReturnType<typeof setTimeout>;
-    function handleResize() {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(fillMarquee, 200);
-    }
-    window.addEventListener('resize', handleResize);
-    return () => {
-      clearTimeout(resizeTimer);
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
   return (
     <>
-      <div className="blob" ref={blobRef} />
+      <CursorBlob />
 
       <nav>
         <div className="logo">MZ<span>.</span></div>
@@ -69,11 +26,9 @@ export default function Home() {
         </div>
       </header>
 
-      <div className="marquee">
-        <div className="marquee-track" ref={trackRef}>
-          <span>UI DESIGN</span><span>◆</span><span>MOTION GRAPHICS</span><span>◆</span><span>BRANDING</span><span>◆</span><span>UX RESEARCH</span><span>◆</span><span>ART DIRECTION</span><span>◆</span>
-        </div>
-      </div>
+      <Marquee>
+        <span>UI DESIGN</span><span>◆</span><span>MOTION GRAPHICS</span><span>◆</span><span>BRANDING</span><span>◆</span><span>UX RESEARCH</span><span>◆</span><span>ART DIRECTION</span><span>◆</span>
+      </Marquee>
 
       <section id="about">
         <h2>About Me</h2>
