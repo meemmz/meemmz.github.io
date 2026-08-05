@@ -1,11 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maryam Zaman</title>
+<style>
+  :root{
+    --bg:#0b0c10;
+    --bg-soft:#14161b;
+    --text:#eef0f3;
+    --muted:#9aa0ab;
+    --accent:#7c9cff;
+    --accent-2:#b98cff;
+    --border:#22252c;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.6;
+  }
+  a{color:inherit;text-decoration:none;}
+
+  nav{
+    position:sticky;top:0;z-index:10;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:1.2rem 6%;
+    background:rgba(11,12,16,0.85);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--border);
+  }
+  nav .logo{font-weight:700;font-size:1.2rem;letter-spacing:0.5px;}
+  nav ul{display:flex;gap:2rem;list-style:none;}
+  nav ul li a{color:var(--muted);font-size:0.95rem;transition:color .2s;}
+  nav ul li a:hover{color:var(--text);}
+
+  header{
+    min-height:90vh;
+    display:flex;flex-direction:column;justify-content:center;align-items:flex-start;
+    padding:0 6%;
+    background:radial-gradient(circle at 80% 20%, rgba(124,156,255,0.12), transparent 40%),
+               radial-gradient(circle at 10% 80%, rgba(185,140,255,0.10), transparent 40%);
+  }
+  header p.eyebrow{color:var(--accent);font-weight:600;letter-spacing:1px;text-transform:uppercase;font-size:0.85rem;margin-bottom:1rem;}
+  header h1{font-size:clamp(2.5rem,6vw,4.5rem);font-weight:800;line-height:1.05;}
+  header h1 span{background:linear-gradient(90deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent;}
+  header p.tagline{color:var(--muted);font-size:1.2rem;margin-top:1.2rem;max-width:600px;}
+  header .cta{display:flex;gap:1rem;margin-top:2.2rem;}
+  .btn{
+    padding:0.8rem 1.6rem;border-radius:8px;font-weight:600;font-size:0.95rem;
+    transition:transform .2s, box-shadow .2s;
+    display:inline-block;
+  }
+  .btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#0b0c10;}
+  .btn-outline{border:1px solid var(--border);color:var(--text);}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(124,156,255,0.2);}
+
+  section{padding:5rem 6%;max-width:1100px;margin:0 auto;}
+  section h2{font-size:2rem;font-weight:800;margin-bottom:0.5rem;}
+  section .section-sub{color:var(--muted);margin-bottom:2.5rem;}
+
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;}
+  .about-grid p{color:var(--muted);margin-bottom:1rem;}
+  .pills{display:flex;flex-wrap:wrap;gap:0.6rem;margin-top:1rem;}
+  .pill{
+    background:var(--bg-soft);border:1px solid var(--border);
+    padding:0.45rem 0.9rem;border-radius:999px;font-size:0.85rem;color:var(--text);
+  }
+
+  .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;}
+  .card{
+    background:var(--bg-soft);border:1px solid var(--border);border-radius:14px;
+    padding:1.8rem;transition:transform .25s, border-color .25s;
+  }
+  .card:hover{transform:translateY(-6px);border-color:var(--accent);}
+  .card h3{font-size:1.15rem;margin-bottom:0.6rem;}
+  .card p{color:var(--muted);font-size:0.95rem;margin-bottom:1rem;}
+  .card .tags{display:flex;flex-wrap:wrap;gap:0.4rem;margin-bottom:1rem;}
+  .card .tags span{font-size:0.75rem;color:var(--accent);background:rgba(124,156,255,0.08);padding:0.2rem 0.6rem;border-radius:6px;}
+  .card a{color:var(--accent);font-size:0.9rem;font-weight:600;}
+
+  .contact-box{
+    background:var(--bg-soft);border:1px solid var(--border);border-radius:16px;
+    padding:3rem;text-align:center;
+  }
+  .contact-box h2{margin-bottom:0.8rem;}
+  .contact-box p{color:var(--muted);margin-bottom:2rem;}
+  .social{display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap;}
+
+  footer{text-align:center;padding:2rem;color:var(--muted);font-size:0.85rem;border-top:1px solid var(--border);}
+
+  @media(max-width:768px){
+    nav ul{display:none;}
+    .about-grid{grid-template-columns:1fr;}
+  }
+</style>
 </head>
 <body>
-    HELLO MARYAM
+
+<nav>
+  <div class="logo">Maryam Zaman</div>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<header>
+  <p class="eyebrow">Welcome to my portfolio</p>
+  <h1>Hi, I'm <span>Maryam Zaman</span></h1>
+  <p class="tagline">A developer who loves building clean, thoughtful things for the web.</p>
+  <div class="cta">
+    <a href="#projects" class="btn btn-primary">View Projects</a>
+    <a href="#contact" class="btn btn-outline">Get in Touch</a>
+  </div>
+</header>
+
+<section id="about">
+  <h2>About Me</h2>
+  <p class="section-sub">A little about who I am and what I do</p>
+  <div class="about-grid">
+    <div>
+      <p>I'm a developer focused on building useful, well-crafted software. I enjoy solving problems, learning new tools, and turning ideas into working products.</p>
+      <p>This site is a work in progress — check back as I add more projects and details soon.</p>
+    </div>
+    <div>
+      <p style="color:var(--text);font-weight:600;margin-bottom:0.5rem;">Skills & Tools</p>
+      <div class="pills">
+        <span class="pill">HTML/CSS</span>
+        <span class="pill">JavaScript</span>
+        <span class="pill">Python</span>
+        <span class="pill">Git</span>
+        <span class="pill">Problem Solving</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+  <p class="section-sub">Some things I've built</p>
+  <div class="projects-grid">
+    <div class="card">
+      <h3>Project One</h3>
+      <p>A short description of this project goes here — what it does and the problem it solves.</p>
+      <div class="tags"><span>HTML</span><span>CSS</span><span>JS</span></div>
+      <a href="#">View project →</a>
+    </div>
+    <div class="card">
+      <h3>Project Two</h3>
+      <p>A short description of this project goes here — what it does and the problem it solves.</p>
+      <div class="tags"><span>Python</span><span>API</span></div>
+      <a href="#">View project →</a>
+    </div>
+    <div class="card">
+      <h3>Project Three</h3>
+      <p>A short description of this project goes here — what it does and the problem it solves.</p>
+      <div class="tags"><span>React</span><span>Design</span></div>
+      <a href="#">View project →</a>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact-box">
+    <h2>Let's Connect</h2>
+    <p>Have a project in mind or just want to say hi? My inbox is open.</p>
+    <div class="social">
+      <a href="mailto:mrymzamaan@gmail.com" class="btn btn-primary">Email Me</a>
+      <a href="https://github.com/meemmz" class="btn btn-outline">GitHub</a>
+      <a href="https://linkedin.com" class="btn btn-outline">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  &copy; 2026 Maryam Zaman. Built with HTML & CSS.
+</footer>
+
 </body>
 </html>
