@@ -182,8 +182,7 @@
 </header>
 
 <div class="marquee">
-  <div class="marquee-track">
-    <span>UI DESIGN</span><span>◆</span><span>MOTION GRAPHICS</span><span>◆</span><span>BRANDING</span><span>◆</span><span>UX RESEARCH</span><span>◆</span><span>ART DIRECTION</span><span>◆</span>
+  <div class="marquee-track" id="marqueeTrack">
     <span>UI DESIGN</span><span>◆</span><span>MOTION GRAPHICS</span><span>◆</span><span>BRANDING</span><span>◆</span><span>UX RESEARCH</span><span>◆</span><span>ART DIRECTION</span><span>◆</span>
   </div>
 </div>
@@ -268,6 +267,28 @@
   const blob = document.getElementById('blob');
   document.addEventListener('mousemove', (e) => {
     blob.style.transform = `translate(${e.clientX - 250}px, ${e.clientY - 250}px)`;
+  });
+
+  function fillMarquee(){
+    const container = document.querySelector('.marquee');
+    const track = document.getElementById('marqueeTrack');
+    if (!track.dataset.unit) track.dataset.unit = track.innerHTML;
+    const unit = track.dataset.unit;
+
+    track.style.animation = 'none';
+    track.innerHTML = unit;
+    while (track.scrollWidth < container.offsetWidth) {
+      track.innerHTML += unit;
+    }
+    track.innerHTML += track.innerHTML;
+    track.style.animation = '';
+  }
+
+  fillMarquee();
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(fillMarquee, 200);
   });
 </script>
 
