@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import CursorBlob from './components/CursorBlob';
 import Marquee from './components/Marquee';
+import ScrollReveal from './components/ScrollReveal';
 
 export default function Home() {
   return (
@@ -58,34 +59,42 @@ export default function Home() {
         <h2>Selected Work</h2>
         <p className="section-sub">Swap these out with your real projects</p>
         <div className="work-grid">
-          <div className="work-card">
-            <div className="thumb">Project Thumb</div>
-            <span className="category">UI Design</span>
-            <h3>Project One</h3>
-            <p>Placeholder description — what it was, your role, the outcome.</p>
-            <Link href="/projects/project-one/" className="link">View Case Study →</Link>
-          </div>
-          <div className="work-card">
-            <div className="thumb">Project Thumb</div>
-            <span className="category">Motion</span>
-            <h3>Project Two</h3>
-            <p>Placeholder description — what it was, your role, the outcome.</p>
-            <a href="#" className="link">View Case Study →</a>
-          </div>
-          <div className="work-card">
-            <div className="thumb">Project Thumb</div>
-            <span className="category">Branding</span>
-            <h3>Project Three</h3>
-            <p>Placeholder description — what it was, your role, the outcome.</p>
-            <a href="#" className="link">View Case Study →</a>
-          </div>
-          <div className="work-card">
-            <div className="thumb">Project Thumb</div>
-            <span className="category">UX Research</span>
-            <h3>Project Four</h3>
-            <p>Placeholder description — what it was, your role, the outcome.</p>
-            <a href="#" className="link">View Case Study →</a>
-          </div>
+          <ScrollReveal>
+            <div className="work-card">
+              <div className="thumb">Project Thumb</div>
+              <span className="category">UI Design</span>
+              <h3>Project One</h3>
+              <p>Placeholder description — what it was, your role, the outcome.</p>
+              <Link href="/projects/project-one/" className="link">View Case Study →</Link>
+            </div>
+          </ScrollReveal>
+          <ScrollReveal>
+            <div className="work-card">
+              <div className="thumb">Project Thumb</div>
+              <span className="category">Motion</span>
+              <h3>Project Two</h3>
+              <p>Placeholder description — what it was, your role, the outcome.</p>
+              <a href="#" className="link">View Case Study →</a>
+            </div>
+          </ScrollReveal>
+          <ScrollReveal>
+            <div className="work-card">
+              <div className="thumb">Project Thumb</div>
+              <span className="category">Branding</span>
+              <h3>Project Three</h3>
+              <p>Placeholder description — what it was, your role, the outcome.</p>
+              <a href="#" className="link">View Case Study →</a>
+            </div>
+          </ScrollReveal>
+          <ScrollReveal>
+            <div className="work-card">
+              <div className="thumb">Project Thumb</div>
+              <span className="category">UX Research</span>
+              <h3>Project Four</h3>
+              <p>Placeholder description — what it was, your role, the outcome.</p>
+              <a href="#" className="link">View Case Study →</a>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
