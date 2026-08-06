@@ -2,6 +2,7 @@ import Link from 'next/link';
 import CursorBlob from './components/CursorBlob';
 import Marquee from './components/Marquee';
 import ScrollReveal from './components/ScrollReveal';
+import ThemeToggle from './components/ThemeToggle';
 
 export default function Home() {
   return (
@@ -10,11 +11,14 @@ export default function Home() {
 
       <nav>
         <div className="logo">MZ<span>.</span></div>
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#work">Work</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
+        <div className="nav-right">
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+          <ThemeToggle />
+        </div>
       </nav>
 
       <header>

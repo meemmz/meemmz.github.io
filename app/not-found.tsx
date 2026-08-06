@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import CursorBlob from './components/CursorBlob';
 import Marquee from './components/Marquee';
+import ThemeToggle from './components/ThemeToggle';
 
 export default function NotFound() {
   return (
@@ -9,11 +10,14 @@ export default function NotFound() {
 
       <nav>
         <div className="logo">MZ<span>.</span></div>
-        <ul>
-          <li><Link href="/#about">About</Link></li>
-          <li><Link href="/#work">Work</Link></li>
-          <li><Link href="/#contact">Contact</Link></li>
-        </ul>
+        <div className="nav-right">
+          <ul>
+            <li><Link href="/#about">About</Link></li>
+            <li><Link href="/#work">Work</Link></li>
+            <li><Link href="/#contact">Contact</Link></li>
+          </ul>
+          <ThemeToggle />
+        </div>
       </nav>
 
       <header>
